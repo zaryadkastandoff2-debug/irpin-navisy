@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Навіси для авто під замовлення в Ірпені. Виготовлення та монтаж</title>
+<meta name="description" content="Виготовлення та монтаж навісів для авто під замовлення в Ірпені. Каркас із профільної труби, покрівля з полікарбонату або профнастилу. Ціна від 4000 грн.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#26282A;
+    --graphite2:#1D1F21;
+    --steel:#9AA1A6;
+    --paper:#F5F4F1;
+    --white:#FFFFFF;
+    --accent:#D97B29;
+    --accent2:#C06A1D;
+    --line:rgba(38,40,42,.12);
+    --lineDark:rgba(245,244,241,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--graphite);
+    background:var(--paper);
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Manrope',sans-serif;line-height:1.12;letter-spacing:-.02em}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+  section{scroll-margin-top:84px}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(34px);transition:opacity .8s ease var(--d,0s),transform .8s cubic-bezier(.22,.7,.25,1) var(--d,0s)}
+  .rv.vis{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  /* header */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(29,31,33,.86);backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .brand{color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;gap:10px}
+  .brand i{width:26px;height:26px;border:2px solid var(--accent);border-radius:4px;position:relative;flex:none}
+  .brand i::after{content:"";position:absolute;left:5px;top:5px;width:16px;height:6px;background:var(--accent);transform:skewX(-30deg)}
+  .links{display:flex;align-items:center;gap:34px}
+  .links a{color:var(--steel);font-size:14px;font-weight:500;transition:color .25s}
+  .links a:hover{color:#fff}
+  .nav .btn{padding:11px 22px;font-size:13.5px}
+  @media(max-width:860px){.links a:not(.btn){display:none}}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--accent);color:#fff;
+    font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;
+    padding:16px 34px;border-radius:3px;border:none;cursor:pointer;
+    transition:background .25s,transform .25s;
+  }
+  .btn:hover{background:var(--accent2);transform:translateY(-2px)}
+  .btn svg{flex:none}
+  .ghost{
+    background:transparent;color:#fff;border:1px solid rgba(255,255,255,.35);
+  }
+  .ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
+
+  /* hero */
+  .hero{
+    min-height:94vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(115deg,rgba(29,31,33,.93) 0%,rgba(29,31,33,.72) 46%,rgba(29,31,33,.32) 100%),
+      url(img/hero.jpg) center/cover no-repeat;
+    padding:150px 0 96px;
+  }
+  .hero-in{max-width:760px}
+  .hero h1{
+    color:#fff;font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:800;margin-bottom:26px;
+  }
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{
+    color:var(--steel);font-size:clamp(1rem,1.6vw,1.22rem);max-width:590px;margin-bottom:42px;
+  }
+  .rule{width:64px;height:3px;background:var(--accent);margin-bottom:28px}
+
+  /* section base */
+  .sec{padding:clamp(76px,10vw,128px) 0}
+  .kicker{
+    display:block;font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:18px;font-family:'Manrope',sans-serif;
+  }
+  .h2{font-size:clamp(1.85rem,3.8vw,2.9rem);font-weight:800;margin-bottom:18px}
+  .lead{color:var(--steel);max-width:640px;font-size:1.05rem}
+
+  /* forms */
+  #formy{background:var(--white);border-top:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px;margin-top:56px}
+  .card{
+    border:1px solid var(--line);border-radius:6px;background:var(--paper);
+    padding:38px 30px;position:relative;overflow:hidden;
+    transition:transform .35s,border-color .35s;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--accent)}
+  .card svg{margin-bottom:24px}
+  .card h3{font-size:20px;font-weight:800;margin-bottom:10px}
+  .card p{color:var(--steel);font-size:14.5px}
+  .card .num{
+    position:absolute;right:20px;top:14px;font-family:'Manrope',sans-serif;font-weight:800;
+    font-size:44px;color:transparent;-webkit-text-stroke:1px rgba(154,161,166,.45);
+  }
+
+  /* etapy */
+  #etapy{background:var(--paper)}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:40px 34px;margin-top:60px}
+  .step{border-left:2px solid var(--line);padding-left:24px;position:relative}
+  .step::before{
+    content:"";position:absolute;left:-2px;top:0;width:2px;height:44px;background:var(--accent);
+  }
+  .step b{
+    display:block;font-family:'Manrope',sans-serif;color:transparent;-webkit-text-stroke:1px var(--steel);
+    font-size:15px;letter-spacing:.1em;margin-bottom:10px;font-weight:800;
+  }
+  .step h3{font-size:19px;font-weight:800;margin-bottom:8px}
+  .step p{color:var(--steel);font-size:14.5px}
+
+  /* calc */
+  #rozrahunok{background:var(--graphite);color:#fff}
+  #rozrahunok .lead{color:var(--steel)}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:900px){.calc{grid-template-columns:1fr;gap:44px}}
+  .panel{
+    background:var(--graphite2);border:1px solid var(--lineDark);border-radius:8px;
+    padding:44px 40px;
+  }
+  .panel label{display:block;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;margin-bottom:16px}
+  .panel label output{color:var(--accent);font-weight:800}
+  input[type=range]{
+    width:100%;appearance:none;-webkit-appearance:none;height:4px;border-radius:2px;
+    background:linear-gradient(to right,var(--accent) var(--fill,26%),rgba(154,161,166,.3) var(--fill,26%));
+    outline:none;margin-bottom:36px;cursor:pointer;
+  }
+  input[type=range]::-webkit-slider-thumb{
+    appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:50%;
+    background:var(--accent);border:4px solid #fff;box-shadow:0 2px 10px rgba(0,0,0,.4);cursor:pointer;
+  }
+  input[type=range]::-moz-range-thumb{
+    width:16px;height:16px;border-radius:50%;background:var(--accent);border:4px solid #fff;cursor:pointer;
+  }
+  .price-row{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .price{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:clamp(2rem,4vw,2.7rem);color:#fff;
+  }
+  .price span{font-size:.55em;color:var(--accent)}
+  .fine{font-size:13px;color:var(--steel);margin:14px 0 30px;max-width:430px}
+  .scale-marks{display:flex;justify-content:space-between;font-size:12px;color:var(--steel);margin:-28px 0 36px}
+
+  /* gallery */
+  #galereia{background:var(--white);border-top:1px solid var(--line)}
+  .grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:56px}
+  @media(max-width:720px){.grid4{grid-template-columns:1fr}}
+  figure.ph{position:relative;overflow:hidden;border-radius:6px;background:var(--graphite)}
+  figure.ph img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .7s cubic-bezier(.22,.7,.25,1)}
+  figure.ph:hover img{transform:scale(1.05)}
+  figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:44px 22px 18px;
+    background:linear-gradient(to top,rgba(29,31,33,.82),transparent);
+    color:#fff;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;
+  }
+
+  /* materialy */
+  #materialy{background:var(--white);border-top:1px solid var(--line)}
+  .mat{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:56px}
+  @media(max-width:860px){.mat{grid-template-columns:1fr}}
+  .mat-card{
+    border:1px solid var(--line);border-radius:6px;padding:44px 38px;
+    display:flex;flex-direction:column;gap:18px;position:relative;background:var(--paper);
+    transition:border-color .35s,transform .35s;
+  }
+  .mat-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+  .mat-card .tag{
+    font-family:'Manrope',sans-serif;font-weight:800;font-size:13px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--accent);
+  }
+  .mat-card h3{font-size:23px;font-weight:800}
+  .mat-card ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .mat-card li{
+    padding-left:26px;position:relative;color:#55595c;font-size:15px;
+  }
+  .mat-card li::before{
+    content:"";position:absolute;left:0;top:.52em;width:12px;height:3px;background:var(--accent);
+  }
+  ::selection{background:var(--accent);color:#fff}
+
+  /* faq */
+  #faq{background:var(--paper)}
+  .qa{max-width:820px;margin:56px auto 0;border-top:1px solid var(--line)}
+  details{border-bottom:1px solid var(--line)}
+  summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding:24px 4px;font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;transition:color .25s;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary:hover{color:var(--accent)}
+  summary::after{
+    content:"+";flex:none;width:30px;height:30px;border:1px solid var(--line);border-radius:50%;
+    display:grid;place-items:center;color:var(--accent);font-weight:400;font-size:19px;transition:transform .3s,border-color .3s;
+  }
+  details[open] summary::after{transform:rotate(45deg);border-color:var(--accent)}
+  details p{padding:0 40px 26px 4px;color:var(--steel);font-size:15px;max-width:720px}
+
+  /* cta band */
+  .band{background:var(--accent);padding:64px 0}
+  .band-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .band h2{color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800}
+  .band .btn{background:var(--graphite);}
+  .band .btn:hover{background:#000}
+
+  /* footer */
+  footer{background:var(--graphite2);color:var(--steel);padding:58px 0 40px;font-size:14px}
+  .f-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--lineDark)}
+  footer .brand{margin-bottom:14px}
+  .f-note{max-width:340px}
+  .f-links{display:flex;flex-direction:column;gap:10px}
+  .f-links a:hover{color:#fff}
+  .f-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:13px}
+  .f-bottom a{color:var(--accent)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><i></i>Навіси <span style="color:var(--accent)">Ірпінь</span></a>
+    <nav class="links">
+      <a href="#formy">Форми навісів</a>
+      <a href="#etapy">Етапи</a>
+      <a href="#rozrahunok">Розрахунок</a>
+      <a href="#galereia">Галерея</a>
+      <a class="btn" href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Написати на OLX</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-in">
+      <div class="rule rv"></div>
+      <h1 class="rv" style="--d:.08s">Навіс для авто з металу, <em>зроблений назавжди</em></h1>
+      <p class="rv" style="--d:.16s">Навіси для авто під замовлення: виготовлення та монтаж у Ірпені. Міцний каркас із профільної труби та охайна покрівля з полікарбонату або профнастилу.</p>
+      <a class="btn rv" style="--d:.24s" href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">
+        Дивитися оголошення на OLX
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="formy" class="sec">
+  <div class="wrap">
+    <span class="kicker rv">Форми навісів</span>
+    <h2 class="h2 rv" style="--d:.06s">Три профілі, які ми будуємо найчастіше</h2>
+    <p class="lead rv" style="--d:.12s">Кожну форму розраховуємо під ваш майданчик: ширину, виліт покрівлі та кріплення до стіни або на окремих стійках.</p>
+    <div class="cards">
+      <article class="card rv" style="--d:.05s">
+        <span class="num">01</span>
+        <svg width="120" height="62" viewBox="0 0 120 62" fill="none">
+          <path d="M8 52V30L104 14v38" stroke="#D97B29" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M8 30l96-16" stroke="#26282A" stroke-width="3" stroke-linecap="round"/>
+          <path d="M2 54h116" stroke="#9AA1A6" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 6"/>
+        </svg>
+        <h3>Односхилі</h3>
+        <p>Лаконічний похилий скат. Простіше всього у виготовленні, вода сходить в один бік, чудово пасує до прямокутного двору.</p>
+      </article>
+      <article class="card rv" style="--d:.13s">
+        <span class="num">02</span>
+        <svg width="120" height="62" viewBox="0 0 120 62" fill="none">
+          <path d="M12 52c0-26 20-38 48-38s48 12 48 38" stroke="#D97B29" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M12 52c0-26 20-38 48-38s48 12 48 38" stroke="#26282A" stroke-width="1.4" transform="translate(0 -7)" opacity=".45"/>
+          <path d="M2 54h116" stroke="#9AA1A6" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 6"/>
+        </svg>
+        <h3>Арочні</h3>
+        <p>Плавна дуга без гострих кутів. Сніг зісковзує сам, а силует виглядає легко й сучасно на відкритому майданчику.</p>
+      </article>
+      <article class="card rv" style="--d:.21s">
+        <span class="num">03</span>
+        <svg width="120" height="62" viewBox="0 0 120 62" fill="none">
+          <path d="M14 50V32L60 10l46 22v18" stroke="#D97B29" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M14 32l46-22 46 22" stroke="#26282A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+          <path d="M2 54h116" stroke="#9AA1A6" stroke-width="2" stroke-linecap="round" stroke-dasharray="4 6"/>
+        </svg>
+        <h3>Двосхилі</h3>
+        <p>Класичний коник по центру. Симетрична покрівля витримує замети й органічно доповнює приватний будинок.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="etapy" class="sec">
+  <div class="wrap">
+    <span class="kicker rv">Етапи роботи</span>
+    <h2 class="h2 rv" style="--d:.06s">Від першого заміру до готового каркаса</h2>
+    <p class="lead rv" style="--d:.12s">Прозорий порядок дій: ви завжди знаєте, що відбувається з вашим замовленням зараз.</p>
+    <div class="steps">
+      <div class="step rv" style="--d:.04s">
+        <b>ЕТАП 01</b>
+        <h3>Замір</h3>
+        <p>Виїзд на майданчик, фіксуємо розміри, ухил ділянки та спосіб кріплення навісу.</p>
+      </div>
+      <div class="step rv" style="--d:.1s">
+        <b>ЕТАП 02</b>
+        <h3>Каркас</h3>
+        <p>Каркас із профільної труби: ріжемо, варимо шви, зачищаємо та фарбуємо метал від корозії.</p>
+      </div>
+      <div class="step rv" style="--d:.16s">
+        <b>ЕТАП 03</b>
+        <h3>Покрівля</h3>
+        <p>Монтуємо обрешітку та укладаємо покрівлю: полікарбонат або профнастил на ваш вибір.</p>
+      </div>
+      <div class="step rv" style="--d:.22s">
+        <b>ЕТАП 04</b>
+        <h3>Монтаж</h3>
+        <p>Доставляємо конструкцію на місце, збираємо, перевіряємо геометрію та прибираємо територію.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="materialy" class="sec">
+  <div class="wrap">
+    <span class="kicker rv">Матеріали</span>
+    <h2 class="h2 rv" style="--d:.06s">З чого складається добрий навіс</h2>
+    <p class="lead rv" style="--d:.12s">Два рішення, які визначають і вигляд, і довговічність конструкції.</p>
+    <div class="mat">
+      <div class="mat-card rv" style="--d:.05s">
+        <span class="tag">Основа</span>
+        <h3>Каркас із профільної труби</h3>
+        <ul>
+          <li>Зварні вузли під кутом: конструкція працює як єдине ціле, а не набір деталей.</li>
+          <li>Товщина та перетин труби підбираються під ширину прольоту й снігове навантаження.</li>
+          <li>Шви зачищаються, метал ґрунтується та фарбується для захисту від корозії.</li>
+        </ul>
+      </div>
+      <div class="mat-card rv" style="--d:.13s">
+        <span class="tag">Покрівля</span>
+        <h3>Полікарбонат або профнастил</h3>
+        <ul>
+          <li>Полікарбонат пропускає світло: майданчик не виглядає темною нишою вздовж фасаду.</li>
+          <li>Профнастил повністю затемнює простір і спокійніше реагує на град та гілки.</li>
+          <li>Обидва варіанти монтуються з правильним ухилом, щоб вода сходила без застою.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rozrahunok" class="sec">
+  <div class="wrap calc">
+    <div>
+      <span class="kicker rv">Орієнтовний розрахунок</span>
+      <h2 class="h2 rv" style="--d:.06s">Скільки коштує навіс під вашу машину</h2>
+      <p class="lead rv" style="--d:.12s">Пересуньте повзунок і отримайте стартову цифру. Остаточну суму рахуємо після заміру: вона залежить від площі, матеріалу покрівлі та складності монтажу.</p>
+    </div>
+    <div class="panel rv" style="--d:.1s">
+      <label for="area">Площа навісу: <output id="areaOut">20</output> м²</label>
+      <input type="range" id="area" min="6" max="80" step="1" value="20">
+      <div class="scale-marks"><span>6 м²</span><span>80 м²</span></div>
+      <div class="price-row">
+        <span style="color:var(--steel);font-size:14px">Орієнтовно:</span>
+        <div class="price"><span>від</span> <b id="priceOut">80 000</b> грн</div>
+      </div>
+      <p class="fine">Базова ціна від 4000 грн за квадратний метр. Розрахунок орієнтовний і не є публічною офертою.</p>
+      <a class="btn" href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Уточнити ціну на OLX</a>
+    </div>
+  </div>
+</section>
+
+<section id="galereia" class="sec">
+  <div class="wrap">
+    <span class="kicker rv">Галерея</span>
+    <h2 class="h2 rv" style="--d:.06s">Метал, який тримає форму і стиль</h2>
+    <p class="lead rv" style="--d:.12s">Характерні рішення для двору, входу та майданчика біля дому.</p>
+    <div class="grid4">
+      <figure class="ph rv" style="--d:.04s">
+        <img src="img/g1.jpg" alt="Навіс для авто у дворі приватного будинку">
+        <figcaption>Навіс над майданчиком у дворі</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:.1s">
+        <img src="img/g2.jpg" alt="Авто під металевим навісом уздовж будинку">
+        <figcaption>Стоянка під захистом каркаса</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:.16s">
+        <img src="img/g3.jpg" alt="Сучасний фасад будинку з металевими конструкціями">
+        <figcaption>Графіка сталі на фасаді</figcaption>
+      </figure>
+      <figure class="ph rv" style="--d:.22s">
+        <img src="img/g4.jpg" alt="Тераса з деревом та металевим каркасом">
+        <figcaption>Тераса під легким перекриттям</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="sec">
+  <div class="wrap">
+    <span class="kicker rv">Питання</span>
+    <h2 class="h2 rv" style="--d:.06s">Коротко про головне</h2>
+    <div class="qa">
+      <details class="rv" style="--d:.04s" open>
+        <summary>Як замовити навіс?</summary>
+        <p>Напишіть на нашому профілі OLX: опишіть майданчик і бажану форму. Далі виїжджаємо на замір, узгоджуємо конструкцію та матеріали, після чого виготовляємо каркас і монтуємо його на вашій ділянці.</p>
+      </details>
+      <details class="rv" style="--d:.1s">
+        <summary>Яку покрівлю обрати: полікарбонат чи профнастил?</summary>
+        <p>Якщо хочете більше денного світла над машиною, обирайте полікарбонат. Якщо потрібна повністю глуха тінь і максимальна стійкість до механічних пошкоджень, підійде профнастил. Порадимо варіант під ваш будинок після заміру.</p>
+      </details>
+      <details class="rv" style="--d:.16s">
+        <summary>Як формується ціна?</summary>
+        <p>Базова ціна від 4000 грн за квадратний метр. Остаточна сума залежить від площі навісу, типу покрівлі, висоти та способу кріплення. Точну вартість озвучуємо після заміру, до початку виготовлення.</p>
+      </details>
+      <details class="rv" style="--d:.22s">
+        <summary>Скільки місця потрібно для однієї машини?</summary>
+        <p>Комфортний мінімум для легкового авто це близько 12 до 15 м² покрівлі з запасом на відкривання дверей і передній звис. Орієнтовну цифру під ваш простір можна отримати у калькуляторі вище.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<div class="band">
+  <div class="wrap band-in">
+    <h2 class="rv">Заміримо ваш майданчик і порахуємо точно</h2>
+    <a class="btn rv" style="--d:.08s" href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Залишити запит на OLX</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-note">
+        <a class="brand" href="#top"><i></i>Навіси <span style="color:var(--accent)">Ірпінь</span></a>
+        <p>Виготовлення та монтаж навісів для авто під замовлення. Каркас із профільної труби, покрівля з полікарбонату або профнастилу. На OLX з 2017 року.</p>
+      </div>
+      <div class="f-links">
+        <a href="#formy">Форми навісів</a>
+        <a href="#etapy">Етапи роботи</a>
+        <a href="#rozrahunok">Орієнтовний розрахунок</a>
+        <a href="#galereia">Галерея</a>
+      </div>
+      <div class="f-links">
+        <a href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Профіль на OLX</a>
+        <a href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Усі оголошення майстра</a>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© <span id="yy">2026</span> Навіси Ірпінь. Майстер металоконструкцій.</span>
+      <span>Ірпінь · Замовлення через <a href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">OLX</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // рік
+  document.getElementById('yy').textContent=new Date().getFullYear();
+
+  // калькулятор орієнтовної ціни
+  (function(){
+    var r=document.getElementById('area'),
+        ao=document.getElementById('areaOut'),
+        po=document.getElementById('priceOut'),
+        fmt=new Intl.NumberFormat('uk-UA');
+    function upd(){
+      r.style.setProperty('--fill',((r.value-r.min)/(r.max-r.min)*100)+'%');
+      ao.textContent=r.value;
+      po.textContent=fmt.format(r.value*4000);
+    }
+    r.addEventListener('input',upd);
+    upd();
+  })();
+
+  // reveal анімації
+  (function(){
+    var els=document.querySelectorAll('.rv');
+    if(!('IntersectionObserver' in window)){
+      els.forEach(function(e){e.classList.add('vis');});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('vis');io.unobserve(en.target);}
+      });
+    },{threshold:.14,rootMargin:'0px 0px -6% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  })();
+</script>
+
+</body>
+</html>
