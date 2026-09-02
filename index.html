@@ -365,17 +365,14 @@
     <div>
       <span class="kicker rv">Орієнтовний розрахунок</span>
       <h2 class="h2 rv" style="--d:.06s">Скільки коштує навіс під вашу машину</h2>
-      <p class="lead rv" style="--d:.12s">Пересуньте повзунок і отримайте стартову цифру. Остаточну суму рахуємо після заміру: вона залежить від площі, матеріалу покрівлі та складності монтажу.</p>
+      <p class="lead rv" style="--d:.12s">Стартова ціна навісу від 4000 грн. Остаточну суму рахуємо після заміру: вона залежить від площі, матеріалу покрівлі та складності монтажу.</p>
     </div>
     <div class="panel rv" style="--d:.1s">
-      <label for="area">Площа навісу: <output id="areaOut">20</output> м²</label>
-      <input type="range" id="area" min="6" max="80" step="1" value="20">
-      <div class="scale-marks"><span>6 м²</span><span>80 м²</span></div>
       <div class="price-row">
-        <span style="color:var(--steel);font-size:14px">Орієнтовно:</span>
-        <div class="price"><span>від</span> <b id="priceOut">80 000</b> грн</div>
+        <span style="color:var(--steel);font-size:14px">Вартість:</span>
+        <div class="price"><span>від</span> <b>4 000</b> грн</div>
       </div>
-      <p class="fine">Базова ціна від 4000 грн за квадратний метр. Розрахунок орієнтовний і не є публічною офертою.</p>
+      <p class="fine">Ціна від 4000 грн залежить від розміру навісу, матеріалу покрівлі та складності монтажу. Точну суму назвемо після заміру, до початку виготовлення.</p>
       <a class="btn" href="https://www.olx.ua/uk/list/user/6cjDv/" target="_blank" rel="noopener">Уточнити ціну на OLX</a>
     </div>
   </div>
@@ -422,7 +419,7 @@
       </details>
       <details class="rv" style="--d:.16s">
         <summary>Як формується ціна?</summary>
-        <p>Базова ціна від 4000 грн за квадратний метр. Остаточна сума залежить від площі навісу, типу покрівлі, висоти та способу кріплення. Точну вартість озвучуємо після заміру, до початку виготовлення.</p>
+        <p>Ціна від 4000 грн. Остаточна сума залежить від площі навісу, типу покрівлі, висоти та способу кріплення. Точну вартість озвучуємо після заміру, до початку виготовлення.</p>
       </details>
       <details class="rv" style="--d:.22s">
         <summary>Скільки місця потрібно для однієї машини?</summary>
@@ -467,21 +464,6 @@
 <script>
   // рік
   document.getElementById('yy').textContent=new Date().getFullYear();
-
-  // калькулятор орієнтовної ціни
-  (function(){
-    var r=document.getElementById('area'),
-        ao=document.getElementById('areaOut'),
-        po=document.getElementById('priceOut'),
-        fmt=new Intl.NumberFormat('uk-UA');
-    function upd(){
-      r.style.setProperty('--fill',((r.value-r.min)/(r.max-r.min)*100)+'%');
-      ao.textContent=r.value;
-      po.textContent=fmt.format(r.value*4000);
-    }
-    r.addEventListener('input',upd);
-    upd();
-  })();
 
   // reveal анімації
   (function(){
